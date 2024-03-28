@@ -38,7 +38,9 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        house_details.captureData();
+       // house_details.captureData();
+        tenants.populateTenants();
+        tenants.sortData();
     }
     
 }

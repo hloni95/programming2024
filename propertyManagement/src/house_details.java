@@ -7,7 +7,7 @@
         houseNum (concated string of the firstletter of the suburb, the street
         number and house number counting from 1 in each case) **done**
         BkValue (250 000 raised to the power - the product of 5 and the streetNum
-        multiplied by the houseNum ** done: pray it actually works **
+        multiplied by the houseNum **done**
         A field to indicate whether a house is leased or not.
         
     objectives:
@@ -59,15 +59,11 @@ public class house_details {
                                     Integer.toOctalString(street +1)).concat(
                                             Integer.toOctalString(house +1));
                     
-                    //assign bkValue
-                    houses[suburb][street][house].bkValue = (int) Math.round(
-                            (Math.pow(2,product(street+1, house+1))));
                     
-                    //attenpt 29
-                    /*
-                    houses[suburb][street][house].bkValue = power(
-                            250000,product(street,house));
-                   */
+                    //power function finally works!!! just dont use that 250 000 else go a nyewa boi
+                    houses[suburb][street][house].bkValue = power(2,
+                            product(street + 1,house + 1));
+                   
                     
                     System.out.println(houses[suburb][street][house].houseNum);
                     System.out.println("BkValue is: R " + 
@@ -89,11 +85,11 @@ public class house_details {
     }
     
     //2. power function : recursive **I need help** //stackoverflow ke ya eng ????
-    public static int power(int initVal, int product){
+    static int power (int base, int x){
         
-        if(product == 1) return 0;
-        else return 1 + power(initVal, product/initVal);
-    }
+        if (x == 0) return 1;
+        else return base * power (base, x - 1);
+  }
     
     /*3. calculate the bkValue :  BkValue (250 000 raised to the power - 
        the product of 5 and the streetNum multiplied by the houseNum*/
@@ -108,25 +104,7 @@ public class house_details {
     /*                    This section displays houses data               */
     public static void displayHousesData(){
         
-        //loop for each suburb
-        for (int suburb = 0; suburb < 2; suburb++) { 
-            
-            //loop for each street
-            for (int street = 0; street < 3; street++) { 
-                
-                //loop for each house
-                for (int house = 0; house < 2; house++) {
-                    
-                }
-                
-            }
-            
-        }
     }
     
 // end of class    
 }
-
-
-//street 1 in hulana will be H11 the second H12
-//street 2 in hulana will be H21 the second H22
